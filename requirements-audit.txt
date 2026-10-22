@@ -1,0 +1,4 @@
+# Direct Python dependencies used by the audited development environment.
+# pip-audit resolves and checks their transitive dependencies at CI run time.
+PyQt6==6.10.2
+PyQt6-WebEngine==6.10.0

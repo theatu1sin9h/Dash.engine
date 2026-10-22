@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dash-browser"
+version = "0.1.0"
+description = "A lightweight desktop browser built with PyQt6 and Qt WebEngine"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+dependencies = [
+    "PyQt6>=6.8,<6.11",
+    "PyQt6-WebEngine>=6.8,<6.11",
+]
+
+[project.scripts]
+dash-browser = "main:main"
+dash-browser-install-shortcut = "browser.desktop:install_shortcut_main"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["main.py", "browser"]
