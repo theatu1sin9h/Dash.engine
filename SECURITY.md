@@ -7,7 +7,8 @@ URLs, or other personal data.
 
 ## Reporting a vulnerability
 
-Email the maintainer at [tas03@gmail.com](mailto:tas03@gmail.com) before
+Email the maintainer at
+[myself.tas03@gmail.com](mailto:myself.tas03@gmail.com) before
 publishing vulnerability details or opening a public issue. Include the
 affected Dash version, operating system, Qt WebEngine version if known, impact,
 and a concise reproduction using harmless test data.

@@ -54,6 +54,6 @@ Dash as a security scanner or anonymity tool.
 ## Contact and review
 
 For privacy questions, contact the maintainer at
-[tas03@gmail.com](mailto:tas03@gmail.com). No jurisdiction-specific legal
-review has been completed. Obtain qualified review for the intended
-jurisdictions before public distribution.
+[myself.tas03@gmail.com](mailto:myself.tas03@gmail.com). No
+jurisdiction-specific legal review has been completed. Obtain qualified review
+for the intended jurisdictions before public distribution.

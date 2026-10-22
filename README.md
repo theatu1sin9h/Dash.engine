@@ -1,5 +1,9 @@
 # Dash Browser
 
+<p align="center">
+  <img src="./browser/assets/dash-mark.png" width="144" alt="Dash Browser red mark">
+</p>
+
 **Less browser. More web.**
 
 Dash Browser is a minimal desktop web browser built with Python, PyQt6, and
@@ -237,10 +241,10 @@ installer command is `dash-browser-install-shortcut`. Both are declared in
 
 For general questions, feedback, permission or licensing requests, and
 vulnerability reports, contact the maintainer at
-[tas03@gmail.com](mailto:tas03@gmail.com). For a suspected vulnerability,
-please contact the maintainer before posting details publicly. Do not send
-passwords, access tokens, cookies, browsing history, private URLs, or other
-personal data. Email is not guaranteed to be encrypted; if a report requires
-confidential handling, ask the maintainer to arrange a suitable secure channel
-before sending sensitive technical details. There is no bug-bounty program or
-response-time guarantee.
+[myself.tas03@gmail.com](mailto:myself.tas03@gmail.com). For a suspected
+vulnerability, please contact the maintainer before posting details publicly.
+Do not send passwords, access tokens, cookies, browsing history, private URLs,
+or other personal data. Email is not guaranteed to be encrypted; if a report
+requires confidential handling, ask the maintainer to arrange a suitable
+secure channel before sending sensitive technical details. There is no
+bug-bounty program or response-time guarantee.
