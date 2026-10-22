@@ -53,6 +53,7 @@ Dash as a security scanner or anonymity tool.
 
 ## Contact and review
 
-No dedicated privacy contact or legal review has been configured for this
-development project. A release owner must add a contact and obtain review for
-the intended jurisdictions before public distribution.
+For privacy questions, contact the maintainer at
+[tas03@gmail.com](mailto:tas03@gmail.com). No jurisdiction-specific legal
+review has been completed. Obtain qualified review for the intended
+jurisdictions before public distribution.

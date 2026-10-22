@@ -25,8 +25,9 @@ Dash is an early development build and is **not ready for public distribution**.
 - No signed updater, release-signing process, generated SBOM, completed
   transitive dependency/license assessment, or production installer is
   provided.
-- No dedicated security contact, independent security audit, or
-  jurisdiction-specific legal/privacy assessment is configured.
+- A public security-reporting email is listed in [SECURITY.md](./SECURITY.md),
+  but no dedicated encrypted advisory channel, independent security audit, or
+  jurisdiction-specific legal/privacy assessment is in place.
 - The approximately 60 MB size target has not been measured. A packaged Qt
   WebEngine browser may exceed it; do not reduce security protections to meet
   an unverified size target.
@@ -34,6 +35,3 @@ Dash is an early development build and is **not ready for public distribution**.
   optimization and limited to 5 MiB and 24 megapixels at selection time. If a
   selected image is moved, removed, or becomes unreadable, the page uses a safe
   gradient background instead.
-- New-tab wallpaper images are embedded into each new-tab document and limited
-  to 5 MiB and 24 megapixels. If a selected image is moved, removed, or becomes
-  unreadable, the page uses a safe gradient background instead.

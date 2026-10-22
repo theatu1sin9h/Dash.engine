@@ -12,11 +12,7 @@ multi-tab browsing, bookmarks, history, downloads, and local privacy controls.
   data management.
 - **PyQt6 / Qt Widgets:** native desktop controls and application window.
 - **Qt WebEngine:** Chromium-based page renderer and browser engine.
-- **HTML, CSS, and JavaScript:** the built-in welcome/search page and its
-  lightweight, faster falling glitter backdrop. Background and glitter colors
-  follow the selected dark/light theme. The effect is generated locally,
-  pauses when the page is hidden, and is disabled for reduced-motion
-  preferences.
+- **HTML, CSS, and JavaScript:** the built-in welcome and search page.
 - **Hatchling and pip:** Python package build/install workflow.
 
 The browser is not based on Electron or a hosted web app. Web pages are rendered
@@ -103,8 +99,8 @@ not been tested or documented as supported workflows.
   a custom HTTPS search template.
 - Back, forward, Home (the welcome/new-tab page), reload, stop, page zoom, and
   multi-tab browsing.
-- A responsive, theme-aware welcome page with direct search/address entry and
-  locally generated falling glitter. It does not display a clock or date.
+- A responsive, theme-aware welcome page with direct search/address entry.
+  It does not display a clock or date.
 - Bookmarks, browsing history, download prompts and controls, and persistent
   regular browsing storage.
 - Dark and light themes, configurable search, and keyboard shortcuts.
@@ -187,6 +183,27 @@ before distributing binaries.
 - **The shortcut command is missing:** run `./run.sh` once to complete
   installation, then run `.venv/bin/dash-browser-install-shortcut`.
 
+## Architecture
+
+The main window coordinates the native browser interface and delegates
+navigation, page rendering, and local data management to focused modules:
+
+```text
++--------------------------- Dash Browser ----------------------------+
+| main.py                                                             |
+|   `-- MainWindow (PyQt6 / Qt Widgets)                               |
+|        |                                                            |
+|        +-- Navigation and tabs --> BrowserTab (Qt WebEngine) --> Web|
+|        +-- Bookmarks, history, downloads, and settings              |
+|        `-- Privacy controls and site permissions                    |
++---------------------------------------------------------------------+
+        `--> User-specific local browser data
+```
+
+Dash Browser does not provide an account, telemetry, or a remote browser
+service. Web requests go from Qt WebEngine to the selected website using the
+operating system's network connection.
+
 ## Project layout
 
 ```text
@@ -215,3 +232,15 @@ before distributing binaries.
 The application command is `dash-browser`; the explicit Linux shortcut
 installer command is `dash-browser-install-shortcut`. Both are declared in
 `pyproject.toml` and require Python 3.10 or newer with PyQt6 and Qt WebEngine.
+
+## Contact and responsible reporting
+
+For general questions, feedback, permission or licensing requests, and
+vulnerability reports, contact the maintainer at
+[tas03@gmail.com](mailto:tas03@gmail.com). For a suspected vulnerability,
+please contact the maintainer before posting details publicly. Do not send
+passwords, access tokens, cookies, browsing history, private URLs, or other
+personal data. Email is not guaranteed to be encrypted; if a report requires
+confidential handling, ask the maintainer to arrange a suitable secure channel
+before sending sensitive technical details. There is no bug-bounty program or
+response-time guarantee.

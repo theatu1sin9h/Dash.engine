@@ -1,7 +1,9 @@
 # Security Incident Response
 
-This is a maintainer workflow draft. No dedicated private reporting contact is
-configured yet; see [SECURITY.md](./SECURITY.md).
+This is a maintainer workflow draft. The public reporting contact and handling
+limitations are documented in [SECURITY.md](./SECURITY.md). Email is not
+guaranteed to be encrypted; arrange a suitable secure channel before
+exchanging sensitive technical details.
 
 ## Triage
 

@@ -1,20 +1,22 @@
-# Security Policy
+# Dash Browser Security Policy
 
-Dash Browser is an early development project, not a stable public release.
-Please do not include real browsing history, cookies, credentials, tokens,
-private URLs, or personal data in a report.
+Dash Browser is an early development project and is not a stable public
+release. Keep reports limited to the information needed to explain the issue.
+Do not include passwords, access tokens, cookies, browsing history, private
+URLs, or other personal data.
 
 ## Reporting a vulnerability
 
-No dedicated security-reporting address or private advisory channel is
-configured in this repository yet. Before publishing Dash, maintainers must
-configure a private contact method in the repository hosting service and
-replace this notice with that contact.
+Email the maintainer at [tas03@gmail.com](mailto:tas03@gmail.com) before
+publishing vulnerability details or opening a public issue. Include the
+affected Dash version, operating system, Qt WebEngine version if known, impact,
+and a concise reproduction using harmless test data.
 
-Until then, do not publish an unredacted report containing exploit details or
-user data in a public issue. Use the private contact route provided by the
-project owner, if one has been separately shared with you. Do not assume a
-public issue is monitored for security reports.
+Email is not guaranteed to be encrypted, and this repository does not
+currently provide a dedicated private advisory channel. Do not send sensitive
+technical details or user data by email; ask the maintainer to arrange a
+suitable secure channel first. Do not publish unredacted exploit details or
+user data in a public issue.
 
 ## Current support
 
@@ -26,7 +28,8 @@ public issue is monitored for security reports.
 
 ## Maintainer response expectations
 
-Once a private contact channel is configured, maintainers should acknowledge
-reports, reproduce them on a supported setup, assess impact and affected
-versions, coordinate a fix and disclosure date with the reporter, and publish
-an advisory for confirmed vulnerabilities. See [SECURITY_RESPONSE.md](./SECURITY_RESPONSE.md).
+Maintainers should acknowledge reports, reproduce them on a supported setup,
+assess impact and affected versions, coordinate a fix and disclosure date with
+the reporter, and publish an advisory for confirmed vulnerabilities. No
+response-time guarantee is offered. See
+[SECURITY_RESPONSE.md](./SECURITY_RESPONSE.md).

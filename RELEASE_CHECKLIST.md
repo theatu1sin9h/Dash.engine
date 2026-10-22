@@ -21,7 +21,8 @@ only when evidence is attached to the release record.
       built-in third-party domain list. Clearly disclose its limited coverage.
 - [ ] Generate and retain an SBOM; review direct and transitive dependency
       advisories and licenses.
-- [ ] Configure a private security-reporting contact and incident process.
+- [ ] Configure and test a private security-reporting channel and incident
+      process; the public contact in `SECURITY.md` is not an encrypted channel.
 - [ ] Complete privacy, consumer-protection, accessibility, and legal review in
       each target jurisdiction.
 - [ ] Measure installer size, installed size, startup time, and memory use.

@@ -72,6 +72,7 @@ The stable release blockers are:
    integration.
 5. No final SBOM, transitive dependency and license review, or supported update
    policy.
-6. No documented security-reporting contact has been configured for users.
+6. A public reporting email is documented, but no dedicated encrypted
+   advisory channel or response-time commitment is configured.
 7. No completed privacy/legal review for intended markets.
 8. No measured installed size or runtime resource baseline.
