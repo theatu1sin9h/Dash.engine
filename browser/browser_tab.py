@@ -235,7 +235,6 @@ def _new_tab_html(
   (() => {{
     const canvas = document.getElementById("matrix");
     const context = canvas.getContext("2d");
-    const glyphs = Array.from("अआइईउऊऋएऐओऔकखगघचछजझटठडढतथदधनपफबभमयरलवशषसहक्षत्रज्ञ");
     let width = 0;
     let height = 0;
     let particles = [];
@@ -251,9 +250,9 @@ def _new_tab_html(
         y: randomY ? Math.random() * height : -Math.random() * height * 0.3,
         speed: 18 + Math.random() * 66,
         drift: (Math.random() - 0.5) * 18,
-        size: 13 + Math.random() * 13,
-        alpha: 0.28 + Math.random() * 0.68,
-        glyph: glyphs[Math.floor(Math.random() * glyphs.length)]
+        length: 8 + Math.random() * 30,
+        thickness: 0.6 + Math.random() * 1.3,
+        alpha: 0.22 + Math.random() * 0.7
       }};
     }}
 
@@ -281,12 +280,18 @@ def _new_tab_html(
       for (const particle of particles) {{
         particle.y += particle.speed * elapsed;
         particle.x += particle.drift * elapsed;
-        if (particle.y > height + particle.size || particle.x < -20 || particle.x > width + 20) {{
+        if (particle.y > height + particle.length || particle.x < -20 || particle.x > width + 20) {{
           Object.assign(particle, makeParticle());
         }}
-        context.font = `${{particle.size}}px sans-serif`;
-        context.fillStyle = `rgba(66, 255, 112, ${{particle.alpha}})`;
-        context.fillText(particle.glyph, particle.x, particle.y);
+        context.beginPath();
+        context.lineWidth = particle.thickness;
+        context.strokeStyle = `rgba(255, 55, 70, ${{particle.alpha}})`;
+        context.moveTo(particle.x, particle.y);
+        context.lineTo(
+          particle.x + particle.drift * 0.14,
+          particle.y - particle.length
+        );
+        context.stroke();
       }}
     }}
 

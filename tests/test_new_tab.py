@@ -13,14 +13,15 @@ from browser.browser_tab import _new_tab_html
 
 
 class NewTabPageTests(unittest.TestCase):
-    def test_welcome_page_has_search_and_randomized_devanagari_matrix(self) -> None:
+    def test_welcome_page_has_search_and_randomized_red_rain(self) -> None:
         html = _new_tab_html("https://example.com/search?q={query}")
 
         self.assertIn("background: #000", html)
         self.assertIn('<canvas id="matrix" aria-hidden="true">', html)
         self.assertIn("Array.from(", html)
-        self.assertIn("अआइईउऊऋएऐओऔ", html)
         self.assertIn("Math.random()", html)
+        self.assertIn("rgba(255, 55, 70", html)
+        self.assertIn("context.lineTo(", html)
         self.assertIn("requestAnimationFrame(draw)", html)
         self.assertIn('(prefers-reduced-motion: reduce)', html)
         self.assertIn("It’s yours. Go ahead.", html)
