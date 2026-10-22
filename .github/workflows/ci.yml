@@ -54,7 +54,7 @@ jobs:
       - name: Check installed dependency licenses
         run: >-
           pip-licenses --allow-only
-          "Apache Software License;Apache-2.0;Apache-2.0 OR BSD-2-Clause;BSD License;BSD-2-Clause;BSD-3-Clause;GPL-3.0-only;GPL-3.0-or-later;ISC;ISC License;LGPL v3;LGPL-3.0-only;LGPL-3.0-or-later;MIT;MIT License;MPL-2.0;Mozilla Public License 2.0 (MPL 2.0);Python Software Foundation License;Unlicense"
+          "Apache Software License;Apache-2.0;Apache-2.0 OR BSD-2-Clause;BSD License;BSD-2-Clause;BSD-3-Clause;GPL-3.0-only;GPL-3.0-or-later;ISC;ISC License;LGPL v3;LGPL-3.0-only;LGPL-3.0-or-later;MIT;MIT License;MPL-2.0;Mozilla Public License 2.0 (MPL 2.0);PSF-2.0;Python Software Foundation License;Unlicense"
       - name: Run tests
         run: python -m unittest discover -s tests -v
       - name: Compile-check
