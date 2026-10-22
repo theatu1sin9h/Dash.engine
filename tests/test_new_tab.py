@@ -13,15 +13,15 @@ from browser.browser_tab import _new_tab_html
 
 
 class NewTabPageTests(unittest.TestCase):
-    def test_welcome_page_has_search_and_randomized_red_rain(self) -> None:
+    def test_welcome_page_has_search_and_randomized_falling_glitter(self) -> None:
         html = _new_tab_html("https://example.com/search?q={query}")
 
-        self.assertIn("background: #000", html)
-        self.assertIn('<canvas id="matrix" aria-hidden="true">', html)
+        self.assertIn('<canvas id="glitter" aria-hidden="true">', html)
         self.assertIn("Array.from(", html)
         self.assertIn("Math.random()", html)
-        self.assertIn("rgba(255, 55, 70", html)
-        self.assertIn("context.lineTo(", html)
+        self.assertIn("speed: 92 + Math.random() * 86", html)
+        self.assertIn("context.arc(", html)
+        self.assertIn("particle.twinkle", html)
         self.assertIn("requestAnimationFrame(draw)", html)
         self.assertIn('(prefers-reduced-motion: reduce)', html)
         self.assertIn("It’s yours. Go ahead.", html)
@@ -37,7 +37,7 @@ class NewTabPageTests(unittest.TestCase):
         self.assertIn("overflow-x: hidden; overflow-y: auto", html)
         self.assertIn("@media (max-width: 520px)", html)
         self.assertIn("@media (prefers-reduced-motion: reduce)", html)
-        self.assertIn("#matrix { display: none; }", html)
+        self.assertIn("#glitter { display: none; }", html)
         self.assertNotIn("stickman", html)
         self.assertIn("body.dismissed", html)
         self.assertIn("dash://customize-background", html)
@@ -51,8 +51,11 @@ class NewTabPageTests(unittest.TestCase):
         self.assertIn('<body data-theme="light" data-custom-background="false">', light_html)
         self.assertIn('<body data-theme="dark" data-custom-background="false">', unexpected_html)
         self.assertIn('body[data-theme="light"]', light_html)
-        self.assertIn("background: #000;", light_html)
-        self.assertIn("background: #000;", dark_html)
+        self.assertIn("--page-bg: #080c09", dark_html)
+        self.assertIn("--page-bg: #f3f6f3", light_html)
+        self.assertIn('const glitterColor = "#d7f5dc"', dark_html)
+        self.assertIn('const glitterColor = "#397849"', light_html)
+        self.assertNotIn("rgba(255, 55, 70", dark_html)
 
     def test_new_tab_supports_custom_solid_and_gradient_backgrounds(self) -> None:
         solid_html = _new_tab_html(

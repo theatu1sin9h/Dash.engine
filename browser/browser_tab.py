@@ -152,38 +152,43 @@ def _new_tab_html(
   :root {{ color-scheme: {page_theme}; font-family: sans-serif; }}
   * {{ box-sizing: border-box; }}
   html, body {{ width: 100%; min-height: 100%; }}
-  body {{ --page-bg: #000; --page-mid: #000; --text: #effff3;
-         --secondary: #91aa98; --glass: rgba(0, 0, 0, .78);
-         --glass-border: rgba(75, 255, 125, .25);
-         --button-text: #031007;
+  body {{ --page-bg: #080c09; --page-mid: #0c120e; --text: #effff3;
+         --secondary: #9cafa0; --glass: rgba(8, 14, 10, .86);
+         --glass-border: rgba(168, 210, 177, .2);
+         --button-text: #071009;
          position: relative; isolation: isolate; margin: 0; min-height: 100vh;
          min-height: 100svh; display: grid; place-items: center;
          overflow-x: hidden; overflow-y: auto; padding: 28px 20px;
-         background: #000;
+         background-color: var(--page-bg);
+         background-image:
+           radial-gradient(ellipse 70% 55% at 50% 45%, rgba(29, 58, 36, .24), transparent 78%),
+           linear-gradient(145deg, var(--page-bg), var(--page-mid));
          color: var(--text); }}
-  #matrix {{ position: fixed; z-index: 0; inset: 0; width: 100%; height: 100%;
-             pointer-events: none; }}
-  body[data-theme="light"] {{ --page-bg: #eef1f5; --page-mid: #f8f9fb;
-         --text: #effff3; --secondary: #91aa98;
-         --glass: rgba(0, 0, 0, .78);
-         --glass-border: rgba(75, 255, 125, .25);
-         --button-text: #031007;
-         background: #000; }}
+  #glitter {{ position: fixed; z-index: 0; inset: 0; width: 100%; height: 100%;
+              pointer-events: none; }}
+  body[data-theme="light"] {{ --page-bg: #f3f6f3; --page-mid: #e9efe9;
+         --text: #202a22; --secondary: #66766a;
+         --glass: rgba(255, 255, 255, .82);
+         --glass-border: rgba(67, 101, 73, .22);
+         --button-text: #f8fff9;
+         background-color: var(--page-bg);
+         background-image:
+           radial-gradient(ellipse 70% 55% at 50% 45%, rgba(177, 207, 181, .25), transparent 78%),
+           linear-gradient(145deg, var(--page-bg), var(--page-mid)); }}
   {custom_background_style}
   @media (prefers-reduced-motion: reduce) {{
-    #matrix {{ display: none; }}
+    #glitter {{ display: none; }}
   }}
   .welcome {{ position: relative; z-index: 1; width: min(540px, calc(100vw - 40px));
               text-align: center; }}
   h1 {{ margin: 0 0 24px; font-size: clamp(30px, 6vw, 46px);
-        color: #b8ffca; font-weight: 500; letter-spacing: -.04em;
-        text-wrap: balance; text-shadow: 0 0 24px rgba(34, 255, 96, .22); }}
+        color: var(--text); font-weight: 500; letter-spacing: -.04em;
+        text-wrap: balance; text-shadow: 0 2px 22px rgba(20, 35, 23, .16); }}
   form {{ display: flex; gap: 8px; padding: 7px;
           border: 1px solid var(--glass-border); border-radius: 16px;
           background: var(--glass);
-          box-shadow: 0 18px 52px rgba(0, 0, 0, .72),
-                      0 0 28px rgba(24, 255, 94, .07),
-                      inset 0 1px 0 rgba(255, 255, 255, .035);
+          box-shadow: 0 18px 52px rgba(0, 0, 0, .18),
+                      inset 0 1px 0 rgba(255, 255, 255, .08);
           -webkit-backdrop-filter: blur(16px);
           backdrop-filter: blur(16px); }}
   input {{ min-width: 0; flex: 1; border: 0; outline: 0; padding: 10px 12px;
@@ -191,20 +196,21 @@ def _new_tab_html(
            font-size: 15px; }}
   input::placeholder {{ color: var(--secondary); }}
   form button {{ border: 0; border-radius: 10px; padding: 0 18px;
-                 color: var(--button-text); background: #66f58d; font: inherit;
+                 color: var(--button-text); background: #33804a; font: inherit;
                  font-weight: 600; cursor: pointer; }}
-  form button:hover {{ background: #8dffab; }}
+  body[data-theme="light"] form button {{ background: #347a48; }}
+  form button:hover {{ filter: brightness(1.12); }}
   .dismiss {{ position: fixed; z-index: 2; top: 14px; right: 16px; width: 36px;
               height: 36px; border: 1px solid var(--glass-border); border-radius: 11px;
-              color: var(--secondary); background: rgba(0, 0, 0, .68); font-size: 22px;
+              color: var(--secondary); background: var(--glass); font-size: 22px;
               cursor: pointer; }}
-  .dismiss:hover {{ color: var(--text); border-color: #54e987; }}
+  .dismiss:hover {{ color: var(--text); border-color: #6f9f78; }}
   .customize {{ position: fixed; z-index: 2; top: 14px; right: 60px;
                 min-height: 36px; padding: 0 12px;
                 border: 1px solid var(--glass-border); border-radius: 10px;
-                color: var(--secondary); background: rgba(0, 0, 0, .68);
+                color: var(--secondary); background: var(--glass);
                 font: inherit; cursor: pointer; }}
-  .customize:hover {{ color: var(--text); border-color: #54e987; }}
+  .customize:hover {{ color: var(--text); border-color: #6f9f78; }}
   @media (max-width: 520px) {{
     body {{ padding: 24px 16px; }}
     h1 {{ margin-bottom: 20px; font-size: clamp(28px, 9vw, 38px); }}
@@ -220,7 +226,7 @@ def _new_tab_html(
 <button class="customize" type="button" aria-label="Customize new-tab background"
         title="Customize new-tab background"
         onclick="location.href='dash://customize-background'">Customize</button>
-<canvas id="matrix" aria-hidden="true"></canvas>
+<canvas id="glitter" aria-hidden="true"></canvas>
 <main class="welcome">
   <h1>It’s yours. Go ahead.</h1>
   <form data-search-url="{safe_search_url}"
@@ -233,8 +239,9 @@ def _new_tab_html(
 </main>
 <script>
   (() => {{
-    const canvas = document.getElementById("matrix");
+    const canvas = document.getElementById("glitter");
     const context = canvas.getContext("2d");
+    const glitterColor = "{'#d7f5dc' if page_theme == 'dark' else '#397849'}";
     let width = 0;
     let height = 0;
     let particles = [];
@@ -248,11 +255,12 @@ def _new_tab_html(
       return {{
         x: Math.random() * width,
         y: randomY ? Math.random() * height : -Math.random() * height * 0.3,
-        speed: 18 + Math.random() * 66,
-        drift: (Math.random() - 0.5) * 18,
-        length: 8 + Math.random() * 30,
-        thickness: 0.6 + Math.random() * 1.3,
-        alpha: 0.22 + Math.random() * 0.7
+        speed: 92 + Math.random() * 86,
+        drift: (Math.random() - 0.5) * 30,
+        radius: 0.7 + Math.random() * 1.8,
+        alpha: 0.25 + Math.random() * 0.7,
+        phase: Math.random() * Math.PI * 2,
+        twinkle: 1.2 + Math.random() * 3
       }};
     }}
 
@@ -264,7 +272,7 @@ def _new_tab_html(
       canvas.height = Math.round(height * scale);
       context.setTransform(scale, 0, 0, scale, 0, 0);
       particles = Array.from(
-        {{ length: Math.min(150, Math.max(55, Math.round(width * height / 12000))) }},
+        {{ length: Math.min(180, Math.max(65, Math.round(width * height / 10000))) }},
         () => makeParticle(true)
       );
       context.clearRect(0, 0, width, height);
@@ -275,24 +283,25 @@ def _new_tab_html(
       if (document.hidden || timestamp - previousFrame < 40) return;
       const elapsed = Math.min((timestamp - previousFrame) / 1000, 0.08);
       previousFrame = timestamp;
-      context.fillStyle = "rgba(0, 0, 0, 0.16)";
-      context.fillRect(0, 0, width, height);
+      context.clearRect(0, 0, width, height);
       for (const particle of particles) {{
         particle.y += particle.speed * elapsed;
         particle.x += particle.drift * elapsed;
-        if (particle.y > height + particle.length || particle.x < -20 || particle.x > width + 20) {{
+        particle.phase += particle.twinkle * elapsed;
+        if (particle.y > height + 8 || particle.x < -20 || particle.x > width + 20) {{
           Object.assign(particle, makeParticle());
         }}
+        const glow = particle.alpha * (0.55 + 0.45 * Math.sin(particle.phase));
         context.beginPath();
-        context.lineWidth = particle.thickness;
-        context.strokeStyle = `rgba(255, 55, 70, ${{particle.alpha}})`;
-        context.moveTo(particle.x, particle.y);
-        context.lineTo(
-          particle.x + particle.drift * 0.14,
-          particle.y - particle.length
-        );
-        context.stroke();
+        context.fillStyle = glitterColor;
+        context.globalAlpha = glow;
+        context.shadowColor = glitterColor;
+        context.shadowBlur = particle.radius * 3;
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fill();
       }}
+      context.globalAlpha = 1;
+      context.shadowBlur = 0;
     }}
 
     document.addEventListener("visibilitychange", () => {{

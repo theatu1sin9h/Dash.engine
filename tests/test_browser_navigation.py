@@ -169,8 +169,8 @@ class BrowserNavigationTests(unittest.TestCase):
                         """JSON.stringify({
                             theme: document.body.dataset.theme,
                             background: getComputedStyle(document.body).backgroundColor,
-                            matrix: Boolean(document.querySelector(
-                                'canvas#matrix[aria-hidden="true"]'
+                            glitter: Boolean(document.querySelector(
+                                'canvas#glitter[aria-hidden="true"]'
                             )),
                             glassBlur: getComputedStyle(
                                 document.querySelector('form')
@@ -185,8 +185,11 @@ class BrowserNavigationTests(unittest.TestCase):
                 )
                 self.assertIn("theme", state, state)
                 self.assertEqual(state["theme"], theme)
-                self.assertEqual(state["background"], "rgb(0, 0, 0)")
-                self.assertTrue(state["matrix"])
+                self.assertTrue(state["glitter"])
+                if theme == "dark":
+                    self.assertEqual(state["background"], "rgb(8, 12, 9)")
+                else:
+                    self.assertEqual(state["background"], "rgb(243, 246, 243)")
                 self.assertIn("blur(16px)", state["glassBlur"])
                 self.assertFalse(state["horizontalOverflow"])
                 self.assertTrue(state["hasInteractiveSearch"])

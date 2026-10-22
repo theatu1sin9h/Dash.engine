@@ -13,9 +13,10 @@ multi-tab browsing, bookmarks, history, downloads, and local privacy controls.
 - **PyQt6 / Qt Widgets:** native desktop controls and application window.
 - **Qt WebEngine:** Chromium-based page renderer and browser engine.
 - **HTML, CSS, and JavaScript:** the built-in welcome/search page and its
-  lightweight randomized red rain-streak backdrop on black. The effect is
-  generated locally, pauses when the page is hidden, and is disabled for
-  reduced-motion preferences.
+  lightweight, faster falling glitter backdrop. Background and glitter colors
+  follow the selected dark/light theme. The effect is generated locally,
+  pauses when the page is hidden, and is disabled for reduced-motion
+  preferences.
 - **Hatchling and pip:** Python package build/install workflow.
 
 The browser is not based on Electron or a hosted web app. Web pages are rendered
@@ -102,8 +103,8 @@ not been tested or documented as supported workflows.
   a custom HTTPS search template.
 - Back, forward, Home (the welcome/new-tab page), reload, stop, page zoom, and
   multi-tab browsing.
-- A black welcome page with direct search/address entry and locally generated
-  red rain streaks. It does not display a clock or date.
+- A responsive, theme-aware welcome page with direct search/address entry and
+  locally generated falling glitter. It does not display a clock or date.
 - Bookmarks, browsing history, download prompts and controls, and persistent
   regular browsing storage.
 - Dark and light themes, configurable search, and keyboard shortcuts.
